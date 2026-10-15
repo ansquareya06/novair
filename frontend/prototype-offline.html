@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>NOVAIR</title>
+<style>
+:root{color-scheme:light;--cr:#F3EBDD;--lc:#FAF7F0;--dc:#E8DDCC;--w:#fff;--g:#EEEEEA;--c:#242424;--s:#707070}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;font:15px system-ui,Segoe UI,sans-serif;background:var(--lc);color:var(--c);display:flex;flex-direction:column}
+.logo{font-weight:700;letter-spacing:3px}.sub{color:var(--s);font-size:12px}
+#login{flex:1;display:flex;align-items:center;justify-content:center;background:var(--cr)}
+.card{background:var(--w);border:1px solid var(--dc);border-radius:6px;padding:22px;box-shadow:0 1px 3px #0001}
+#login .card{width:420px;padding:32px}input,select,textarea{color:#242424!important;-webkit-text-fill-color:#242424;width:100%;padding:7px;border:1px solid #d6cdbb;border-radius:4px;background:#fff;font:inherit;margin:3px 0 10px}
+button{padding:7px 14px;border:0;border-radius:4px;background:var(--c);color:#fff;cursor:pointer;font:inherit}button.alt{background:var(--g);color:var(--c);border:1px solid #d6cdbb}
+.req{font-size:12px;color:#999;list-style:none;padding:0;margin:0 0 10px}.req li.ok{color:#3d7a5a}.req li:before{content:"○ "}.req li.ok:before{content:"✓ "}
+small.demo{display:block;margin-top:12px;color:var(--s);font-size:11px;line-height:1.5}.err{color:#b04040;font-size:12px;min-height:16px}
+#app{display:none;flex:1;min-height:0}nav{width:220px;background:var(--cr);border-right:1px solid var(--dc);padding:12px 0;overflow:auto}
+nav .logo{padding:6px 18px 16px;font-size:30px}nav a{display:block;padding:11px 18px;cursor:pointer;border-left:3px solid transparent}nav a.on{background:var(--lc);border-left-color:var(--ac);font-weight:600}
+main{flex:1;padding:24px 32px;overflow:auto}h2{margin:0 0 12px;font-size:17px}h3{margin:0 0 8px;font-size:14px}
+.row{display:flex;gap:14px;flex-wrap:wrap}.row>*{flex:1;min-width:300px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:16px}.stat{background:#fff;border:1px solid var(--dc);border-radius:6px;padding:12px 14px;border-top:3px solid var(--ac,#5964A8)}.stat b{font-size:24px;display:block}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:0 14px}.kv span:first-child{color:var(--s)}.g2{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+svg text{fill:#1a1a1a;stroke:#fff;stroke-width:3px;paint-order:stroke;pointer-events:none;text-anchor:middle}.nm{font-size:16px;font-weight:700}.rk{font-size:12px}.t{cursor:pointer;stroke:#fff;stroke-width:2}.t:hover{opacity:.8}
+table{width:100%;border-collapse:collapse;background:#fff}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--g)}th{background:var(--g);font-size:12px}
+.b{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;color:#fff}.bar{background:var(--g);height:8px;border-radius:4px;min-width:60px}.bar i{display:block;height:8px;border-radius:4px}
+.al{border-left:4px solid;padding:8px 10px;background:#fff;margin-bottom:8px;border-radius:0 4px 4px 0}
+.flow{font-size:11px;color:var(--s);margin-bottom:10px}.kv{display:flex;justify-content:space-between;border-bottom:1px solid var(--g);padding:3px 0;font-size:13px}
+footer{font-size:11px;color:var(--s);text-align:center;padding:6px;border-top:1px solid var(--dc);background:var(--lc)}
+@media(max-width:700px){nav{width:110px}.g2{grid-template-columns:1fr}}
+.tile{cursor:pointer;transition:transform .18s ease,filter .18s ease;transform-box:fill-box;transform-origin:center}.tile:hover{transform:scale(1.07);filter:drop-shadow(0 5px 7px #0004)}
+nav a{transition:background .15s,padding-left .15s}nav a:hover{background:#f7f1e6;padding-left:22px}button{transition:transform .12s,opacity .12s}button:hover{opacity:.88;transform:translateY(-1px)}
+.stat,.card{transition:box-shadow .2s,transform .2s}.stat:hover{box-shadow:0 4px 10px #0002;transform:translateY(-2px)}tr:hover td{background:#faf7f0}
+main>*{animation:fi .25s ease}@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}#side>*{animation:fi .2s ease}
+body{background:#F6F1E7}.page{max-width:1400px;margin:0 auto}
+nav{width:240px;background:#242424;border-right:0}nav .logo{color:#F3EBDD}nav .sub{color:#a9a39a}
+nav a{color:#E8DDCC;margin:3px 12px;border-radius:8px;padding:12px 14px;border-left:4px solid transparent}nav a:hover{background:#333;padding-left:18px}nav a.on{background:#3a3a3a;border-left-color:var(--ac);color:#fff}
+nav select{margin:0;background:#333;color:#F3EBDD!important;-webkit-text-fill-color:#F3EBDD;border-color:#444}
+main{padding:34px 44px}h2{font-size:26px;margin:0 0 24px}h2:before{content:"";display:inline-block;width:6px;height:24px;border-radius:3px;background:var(--pg,#5964A8);margin-right:12px;vertical-align:-3px}
+.card{border-radius:14px;box-shadow:0 2px 12px #24242410;border:1px solid #eadfcc;padding:22px}.card h3{font-size:15px;margin:0 0 14px}
+.stats{grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:22px}.stat{padding:20px;border-radius:14px;border:1px solid #eadfcc;border-top:4px solid var(--ac)}.stat b{font-size:36px;margin-top:6px}
+.gm{display:grid;grid-template-columns:2fr 1fr;gap:20px}.g3c{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.g2c{display:grid;grid-template-columns:1fr 1fr;gap:20px}.gauto{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-bottom:20px}
+#side{display:flex;flex-direction:column}#side .kv{flex:1;align-items:center}
+.big{font-size:32px;font-weight:700;margin:8px 0 12px}.mrow{display:flex;justify-content:space-between;font-size:13px;margin-top:10px;color:#555}
+.mini{background:var(--lc);border-radius:10px;padding:16px}.mini b{display:block;font-size:26px;margin-top:4px}.rcard{border-top:4px solid var(--ac)}
+.chip{display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;color:#fff}.li{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--g)}.li:last-child{border:0}.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.tb{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}.tb select{width:auto;margin:0}table{border-radius:12px;overflow:hidden;box-shadow:0 2px 12px #24242410}
+@media(max-width:1000px){.gm,.g3c,.g2c,.stats{grid-template-columns:1fr 1fr}nav{width:150px}main{padding:20px}}
+body{font-family:'DM Sans',system-ui,Segoe UI,sans-serif;background:#FAF7F0}
+h2,.logo,.big,.stat b{font-family:'Fraunces',Georgia,serif}
+#login{background-color:#F3EBDD;background-image:linear-gradient(#e6dac44d 1px,transparent 1px),linear-gradient(90deg,#e6dac44d 1px,transparent 1px);background-size:40px 40px}
+#login .card{border-radius:20px;box-shadow:0 12px 40px #5a4a2a1f;padding:38px;width:440px}
+nav{background:#F3EBDD;border-right:1px solid #e6dac4}nav .logo{color:#242424}nav .sub{color:#707070}
+nav a{color:#242424}nav a:hover{background:#fbf7ef}nav a.on{background:#fff;color:#242424;box-shadow:0 2px 8px #5a4a2a14;border-left-color:var(--ac);font-weight:600}
+nav select{background:#fff;color:#242424!important;-webkit-text-fill-color:#242424;border-color:#d6cdbb}
+main{background-color:#F6F0E3;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .15 0 0 0 .10 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),radial-gradient(#d6c9ae88 1px,transparent 1.2px),linear-gradient(180deg,#FBF8F1,#F0E7D6);background-size:220px 220px,26px 26px,100% 100%}
+nav{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .15 0 0 0 .12 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+.card{border-radius:16px;box-shadow:0 4px 18px #5a4a2a12;border:1px solid #eee3d0}
+.stat{position:relative;overflow:hidden;border-radius:16px;box-shadow:0 4px 18px #5a4a2a12}.stat:after{content:"";position:absolute;right:-20px;top:-20px;width:90px;height:90px;border-radius:50%;background:var(--ac);opacity:.12}
+.tile rect{fill-opacity:.92}button{border-radius:8px;box-shadow:0 2px 6px #24242424}button.alt{box-shadow:none}
+.mini{border:1px solid #eee3d0;background:#fff}h2{letter-spacing:-.3px}
+:root{--grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .15 0 0 0 .17 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");--grainL:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .15 0 0 0 .07 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");--topo:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='320' viewBox='0 0 420 320'><g fill='none' stroke='%23b3a27f' stroke-opacity='.35' stroke-width='1.1'><path d='M0 40 C70 0 130 90 210 50 S350 80 420 40'/><path d='M0 80 C70 40 130 130 210 90 S350 120 420 80'/><path d='M0 120 C70 80 130 170 210 130 S350 160 420 120'/><path d='M0 160 C70 120 130 210 210 170 S350 200 420 160'/><path d='M0 200 C70 160 130 250 210 210 S350 240 420 200'/><path d='M0 240 C70 200 130 290 210 250 S350 280 420 240'/><path d='M0 280 C70 240 130 330 210 290 S350 320 420 280'/></g></svg>")}
+main{background-color:#F5EEDF;background-image:var(--grain),var(--topo),radial-gradient(900px 500px at 100% 0,#f7dfc466,transparent 60%),radial-gradient(800px 500px at 0 100%,#cfd6e166,transparent 60%),linear-gradient(180deg,#FBF8F1,#EFE5D2);background-size:220px 220px,420px 320px,auto,auto,100% 100%}
+nav{background-color:#F1E8D6;background-image:var(--grain),var(--topo);background-size:220px 220px,420px 320px}
+#login{background-color:#F3EBDD;background-image:var(--topo),var(--grain),radial-gradient(700px 500px at 80% 10%,#f7dfc477,transparent 60%);background-size:420px 320px,220px 220px,auto}
+.card,.stat{background-color:#FFFEFB;background-image:var(--grainL);background-size:220px 220px}
+.gm>.card:first-child{background-image:linear-gradient(#e6dcc6 1px,transparent 1px),linear-gradient(90deg,#e6dcc6 1px,transparent 1px),var(--grainL);background-size:30px 30px,30px 30px,220px 220px}
+.rcard{background-image:linear-gradient(180deg,color-mix(in srgb,var(--ac) 8%,transparent),transparent 65%),var(--grainL);background-size:auto,220px 220px}
+h2:after{content:"";display:block;height:3px;width:60px;margin-top:10px;border-radius:3px;background:var(--pg,#5964A8);opacity:.55}
+button:not(.alt){background:linear-gradient(#3a3a3a,#1e1e1e)}
+footer{background-image:var(--grain)}
+</style><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet"></head><body>
+<div id="login"><div class="card"><div class="logo" style="font-size:46px;line-height:1.1">NOVAIR</div><div class="sub">Emergency Intelligence &amp; Response Platform</div><div class="sub" style="margin-bottom:16px">Predict. Prepare. Respond.</div>
+<label>Email / Username<input id="em" autocomplete="off" placeholder="admin@novair.com"></label><label>Password<input id="pw" type="password" oninput="chk()"></label>
+<ul class="req" id="rq"><li>At least 8 characters</li><li>One uppercase letter</li><li>One number</li><li>One special character</li></ul>
+<label><input type="checkbox" style="width:auto;margin:0 4px 0 0" onchange="pw.type=this.checked?'text':'password'">Show password</label>
+<label style="display:block;margin:6px 0"><input type="checkbox" style="width:auto;margin:0 4px 0 0">Remember me</label>
+<div class="err" id="er"></div><button onclick="login()" style="width:100%">Login</button>
+<div style="text-align:center;margin-top:8px"><a href="#" class="sub" onclick="er.textContent='Password reset is not available in the prototype.';return false">Forgot password?</a></div>
+<div style="margin-top:14px;display:flex;gap:6px"><button class="alt" onclick="fill('admin')">Admin</button><button class="alt" onclick="fill('staff')">Field Staff</button><button class="alt" onclick="fill('citizen')">Citizen</button></div><small class="demo">Demo password: NOVAIR@2026</small></div></div>
+<div id="app"><nav><div class="logo">NOVAIR</div><div id="nv"></div></nav><main id="mn"></main></div>
+<footer>Ananya Sahu 2427030501</footer>
+<script>
+const USERS={'admin@novair.com':'Admin','staff@novair.com':'Staff','citizen@novair.com':'Citizen'};let role='';
+const RULES=[/.{8,}/,/[A-Z]/,/\d/,/[^A-Za-z0-9]/];
+function chk(){const v=pw.value;[...rq.children].forEach((l,i)=>l.className=RULES[i].test(v)?'ok':'');return RULES.every(r=>r.test(v))}
+function fill(u){em.value=u+'@novair.com';pw.value='NOVAIR@2026';chk();er.textContent=''}
+function login(){try{const e=em.value.trim().toLowerCase();if(!chk())return er.textContent='Password does not meet the requirements.';
+if(!USERS[e]||pw.value!=='NOVAIR@2026')return er.textContent='Incorrect email or password.';role=USERS[e];login_.style.display='none';app.style.display='flex';nav_();go(ALLOW[role][0])}catch(x){er.textContent='Error: '+x.message}}
+const login_=document.getElementById('login');
+// ---- sample data (SIMULATED) : name,pop(lakh),density,beds,ambulances,police,fire,rescue,shelterCap,gx,gy
+const RAW=[['Jaipur',66,598,9000,120,400,40,12,20000,3,1],['Jodhpur',37,161,4500,70,260,24,8,12000,1,1],['Udaipur',31,262,3200,55,200,18,7,15000,2,3],['Kota',20,230,3800,60,190,20,6,9000,3,3],['Bikaner',24,78,2600,45,170,15,5,8000,1,0],['Ajmer',26,305,3000,50,180,16,6,10000,2,2],['Jaisalmer',7,17,700,18,90,6,3,3000,0,1],['Barmer',26,92,1500,30,120,8,4,6000,0,2],['Alwar',37,438,2700,48,210,14,5,9000,4,1],['Bharatpur',26,503,2200,40,150,12,5,8000,4,2],['Sikar',27,282,1800,35,140,10,4,7000,3,0],['Chittorgarh',15,198,1300,28,110,8,4,5000,2,4]];
+const D=RAW.map(r=>({n:r[0],pop:r[1],den:r[2],beds:r[3],amb:r[4],pol:r[5],fire:r[6],resc:r[7],shel:r[8],x:r[9],y:r[10],risk:'Low',inc:null,pr:null,occ:.35,out:{}}));
+const AREAS={Jaipur:['Malviya Nagar','Mansarovar','Vaishali Nagar','C-Scheme','Sanganer','Jhotwara'],Jodhpur:['Sardarpura','Ratanada','Paota','Mandore'],Udaipur:['Fateh Sagar','Hiran Magri','Sukhadia Circle'],Kota:['Talwandi','Vigyan Nagar','Mahaveer Nagar'],Bikaner:['Lalgarh','Gangashahar'],Ajmer:['Pushkar Road','Adarsh Nagar'],Jaisalmer:['Gadisar','Sam Road'],Barmer:['Station Road','Balotra'],Alwar:['Scheme 10','Shanti Kunj'],Bharatpur:['Kila Area','Keoladeo Road'],Sikar:['Fatehpur Road','Salasar'],Chittorgarh:['Fort Road','Bassi']};
+D.forEach(d=>{d.areas=(AREAS[d.n]||[]).slice();d.inv={kits:Math.round(d.beds/4),food:d.pop*1500,water:d.pop*2500,blk:d.pop*500,eq:d.resc*40};d.base={...d.inv}});
+const E=[[0,5,135],[0,10,115],[0,8,150],[0,9,185],[0,3,245],[5,1,200],[5,2,270],[5,3,205],[1,4,250],[1,7,215],[1,6,285],[7,6,155],[2,11,115],[3,11,170],[10,4,215],[8,9,95],[5,11,190]];
+const BASE=['Jaipur','Jodhpur','Udaipur','Kota','Ajmer','Bikaner'];
+const RC={Low:'#6aa84f',Medium:'#e6c229',High:'#e8892b',Critical:'#d03a35'};
+let INC=[],AL=[],ASSIGN=[],SENS={wl:1.2,rain:14,temp:33,crowd:100};
+const NAV=[['map','Live Map','#5964A8'],['report','Report Incident','#D95C5C'],['pred','Risk Forecast','#8767B7'],['res','Resources','#5487B8'],['resp','Responders','#4E9990'],['shel','Shelters','#D6A34A'],['inv','Inventory','#D9824B'],['mine','My Reports','#D95C5C'],['alerts','Alerts','#D96B68'],['data','Sample Data','#69727C'],['users','Users','#69727C']];
+let cur='map',sel=null;
+const ALLOW={Admin:['map','report','pred','res','resp','shel','inv','alerts','data','users'],Staff:['map','resp','inv','shel','alerts'],Citizen:['report','mine']},LBL={Admin:'Administrator',Staff:'Field Staff',Citizen:'Citizen'};let lastRef=0;
+function switchRole(v){role=v;nav_();go(ALLOW[role][0])}
+function nav_(){nv.innerHTML=`<div class="sub" style="padding:0 18px 12px">Signed in as <b>${LBL[role]}</b></div>`+NAV.filter(n=>ALLOW[role].includes(n[0])).map(n=>`<a id="n_${n[0]}" style="--ac:${n[2]}" onclick="go('${n[0]}')">${n[1]}</a>`).join('')+`<div style="padding:16px 18px 6px" class="sub">View as</div><div style="padding:0 14px"><select onchange="switchRole(this.value)">${Object.keys(LBL).map(r=>`<option value="${r}" ${r==role?'selected':''}>${LBL[r]}</option>`).join('')}</select></div><a onclick="location.reload()" style="color:#707070">Logout</a>`}
+function vUsers(){const U=[['admin@novair.com','Administrator','Runs the platform: map, predictions, resources, alerts, data and users'],['staff@novair.com','Field Staff','Updates ambulance dispatch status and inventory stock'],['citizen@novair.com','Citizen','Reports incidents and tracks their own reports']];
+return `<h2>Users</h2><table><tr><th>Email</th><th>Role</th><th>Access</th></tr>${U.map(u=>`<tr><td>${u[0]}</td><td>${u[1]}</td><td>${u[2]}</td></tr>`).join('')}</table>`}
+function vMine(){const mine=INC.filter(x=>x.by=='Citizen');
+ return `<h2>My Reports</h2>`+(lastRef?`<div class="card" style="border-left:5px solid #4E9990;margin-bottom:20px"><b>Report #${lastRef} received.</b><div class="sub">The response team has been notified.</div></div>`:'')+(mine.length?'<div class="gauto">'+mine.map(x=>`<div class="card rcard" style="--ac:#D95C5C"><div class="mrow" style="margin:0"><b>#${x.id} ${x.type}</b><span class="chip" style="background:#4E9990">Received</span></div><div style="margin:12px 0 4px;font-size:16px">${x.loc}</div><div class="sub">${x.d} · ${x.date} ${x.time}</div></div>`).join('')+'</div>':'<div class="card sub">You have not reported anything yet.</div>')}
+function go(v){cur=v;document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.id=='n_'+v));draw()}
+// ---- models
+const f2=n=>Math.round(+n),r2=n=>+(+n).toFixed(2);
+const softmax=z=>{const m=Math.max(...z),e=z.map(v=>Math.exp(v-m)),s=e.reduce((a,b)=>a+b);return e.map(v=>v/s)};
+function predict(d,i){ // multinomial logistic regression (hand-set coefficients, reference class = Low)
+ const hist=INC.filter(x=>x.d==d.n).length,z=.9*i.sev+.35*i.wl+.012*i.rain+.00008*i.aff+.0004*d.den+.04*Math.max(0,i.temp-35)+.3*hist;
+ const a=[0,-1.6,-3.6,-6.2],b=[0,.9,1.55,2.2],lg=a.map((v,k)=>v+b[k]*z),p=softmax(lg),cl=['Low','Medium','High','Critical'],k=p.indexOf(Math.max(...p));
+ const mu=Math.exp(.6+.45*i.sev+.45*Math.log(1+i.aff)+.04*i.wl),nb=mu>150,vr=nb?mu+.05*mu*mu:mu,inj=Math.round(mu);
+ const free=d.beds*.25,dm={'Ambulances':[Math.ceil(inj/10),d.amb],'Hospital Beds':[Math.ceil(inj*.7),Math.round(free)],'Doctors':[Math.ceil(inj/15),Math.round(d.beds/12)],'Medical Kits':[Math.ceil(inj*2),Math.round(d.beds/2)],'Rescue Teams':[Math.ceil(i.aff/1500),d.resc],'Shelter Places':[Math.ceil(i.aff*.4),Math.round(d.shel*(1-d.occ))],'Food Packets (x100)':[Math.ceil(i.aff*.4/100*3),Math.round(d.pop*3)],'Water (x100 L)':[Math.ceil(i.aff*.4*3/100),Math.round(d.pop*4)]};
+ return{lg,p,cl,risk:cl[k],score:+z.toFixed(2),inj,model:nb?'Negative Binomial':'Poisson',mu:+mu.toFixed(2),vr:+vr.toFixed(2),dm}}
+function runPrediction(){const g=id=>document.getElementById(id).value,d=D.find(x=>x.n==g('dd')),type=g('ty'),rel=REL[type]||[],ms=document.getElementById('msg');
+ const pk=(id,k,def)=>!rel.includes(k)?def:g(id)=='auto'?SENS[k]:+g(id);
+ const area=g('ar')=='__o'?g('lc').trim():g('ar'),aff=+g('af');
+ if(!area||!(aff>0))return ms.textContent='Choose or type an area and enter the number of people affected.';
+ if(!d.areas.includes(area))d.areas.push(area);
+ const i={sev:+g('sv'),wl:pk('wl','wl',.5),rain:pk('rn','rain',0),temp:pk('tp','temp',32),aff},pr=predict(d,i);
+ const inc={id:INC.length+1,by:role,d:d.n,loc:area,type,date:g('dt'),time:g('tm'),i,rep:+g('ij'),desc:g('ds'),pr};
+ INC.unshift(inc);d.inc=inc;d.pr=pr;d.risk=pr.risk;d.occ=Math.min(1,d.occ+.2);d.alloc=null;d.need=needOf(i,pr);
+ const dm=pr.dm,A=(lvl,t,m)=>AL.unshift({lvl,d:d.n,t,m,time:new Date().toLocaleTimeString()});
+ if(pr.risk=='Critical'||pr.risk=='High')A(pr.risk.toUpperCase(),pr.risk+' risk',`${type} at ${area}. Probability of ${pr.risk}: ${(pr.p[pr.cl.indexOf(pr.risk)]*100).toFixed(2)}%`);
+ if(pr.inj>150)A('HIGH','High predicted injuries',`Predicted injured: ${f2(pr.inj)}, reported: ${inc.rep}`);
+ for(const k in dm)if(dm[k][0]>dm[k][1])A(k=='Hospital Beds'||k=='Ambulances'?'CRITICAL':'WARNING','Shortage: '+k,`Required: ${f2(dm[k][0])}, available: ${dm[k][1]}, shortage: ${f2(dm[k][0]-dm[k][1])}`);
+ if(dm['Shelter Places'][0]>dm['Shelter Places'][1])A('WARNING','Shelter capacity exceeded',d.n);
+ for(const k in d.need)if(d.need[k]>d.inv[k])A('WARNING','Low inventory: '+INAMES[k],`Required ${f2(d.need[k])}, in stock ${f2(d.inv[k])}`);
+ ASSIGN=assign(d,pr,inc);ASSIGN.forEach(a=>feed(a.units+' × '+a.type+' dispatched from '+a.from,'System'));sel=d.n;invD=d.n;if(role=='Citizen'){lastRef=inc.id;go('mine');return}go('map');alertBadge()}
+function dijkstra(s,t){const n=D.length,dist=Array(n).fill(1e9),pv=Array(n).fill(-1),vis=[];let ex_=0;dist[s]=0;
+ for(let k=0;k<n;k++){let u=-1;for(let j=0;j<n;j++)if(!vis[j]&&(u<0||dist[j]<dist[u]))u=j;vis[u]=1;ex_++;if(u==t)break;E.forEach(([a,b,w])=>{[[a,b],[b,a]].forEach(([x,y])=>{if(x==u&&dist[u]+w<dist[y]){dist[y]=dist[u]+w;pv[y]=u}})})}
+ const path=[];for(let c=t;c>=0;c=pv[c])path.unshift(D[c].n);return{path,km:dist[t],ex:ex_}}
+function assign(d,pr,inc){const t=D.indexOf(d),aff=inc.i.aff,fire=['Fire','Industrial Accident'].includes(inc.type);
+ const T=[['Ambulance Teams',(pr.inj/10),x=>x.amb],['Doctors',(pr.inj/15),x=>Math.round(x.beds/12)],['Nurses',(pr.inj/6),x=>Math.round(x.beds/6)],['Rescue Teams',(aff/1500),x=>x.resc],['Police',(aff/800),x=>x.pol],['Firefighters',fire?(aff/300):(aff/4000),x=>x.fire]];
+ const order=D.map((x,k)=>({k,km:dijkstra(t,k).km})).sort((a,b)=>a.km-b.km),rows=[];DEM=[];
+ T.forEach(([name,need,tot])=>{let left=Math.ceil(need);order.forEach(o=>{if(left<=0)return;const s=D[o.k],av=Math.floor(tot(s)*.7)-(s.out[name]||0),take=Math.min(left,av);if(take<=0)return;
+  const r=dijkstra(o.k,t);s.out[name]=(s.out[name]||0)+take;left-=take;rows.push({type:name,from:s.n,si:o.k,to:d.n,units:take,path:r.km?r.path.join(' → '):'Within district',km:r.km,min:r.km?r2(r.km/55*60):10,st:'Dispatched'})});
+  DEM.push([name,Math.ceil(need),Math.ceil(need)-left,left]);if(left>0)AL.unshift({lvl:'WARNING',d:d.n,t:'Responder shortfall: '+name,m:`Required ${Math.ceil(need)}, deployable ${Math.ceil(need)-left}, unmet ${left}`,time:new Date().toLocaleTimeString()})});
+ return rows}
+function setSt(k,v){const a=ASSIGN[k];if(v=='Completed'&&a.st!='Completed')D[a.si].out[a.type]-=a.units;if(a.st=='Completed'&&v!='Completed')D[a.si].out[a.type]+=a.units;a.st=v;a.by=LBL[role];a.at=new Date().toLocaleTimeString();feed(a.type+' ×'+a.units+' ('+a.from+' → '+a.to+'): '+v)}
+function alertBadge(){const a=document.getElementById('n_alerts');if(a)a.textContent='Alerts'+(AL.length?` (${AL.length})`:'')}
+// ---- views
+const bar=(v,m,c)=>`<div class="bar"><i style="width:${Math.min(100,v/m*100)}%;background:${c}"></i></div>`;
+const kv=(a,b)=>`<div class="kv"><span>${a}</span><b>${b}</b></div>`;
+function draw(){const m=document.getElementById('mn');m.innerHTML='<div class="page" style="--pg:'+(NAV.find(n=>n[0]==cur)||[0,0,'#5964A8'])[2]+'">'+({map:vMap,report:vRep,pred:vPred,res:vRes,resp:vResp,mine:vMine,users:vUsers,det:vDet,shel:vShel,inv:vInv,alerts:vAl,data:vData})[cur]()+'</div>';if(cur=='report'&&['Admin','Citizen'].includes(role)){repDist();repType()}if(cur=='map')tick();if(cur=='map')document.getElementById('mn').querySelector('#side').innerHTML=side();alertBadge()}
+const FLOW='';
+const INAMES={kits:'Medical Kits',food:'Food Packets',water:'Water (L)',blk:'Blankets',eq:'Emergency Equipment'};let invD='Jaipur',LOG=[],DEM=[],FEED=[];function feed(t,by){FEED.unshift({t:new Date().toLocaleTimeString(),by:by||LBL[role],text:t})}
+const REL={Flood:['wl','rain'],Fire:['temp'],Earthquake:[],Heatwave:['temp'],Storm:['rain'],Landslide:['rain'],'Industrial Accident':['temp'],Other:['wl','rain','temp']};
+const needOf=(i,pr)=>({kits:Math.ceil(pr.inj*2),food:Math.ceil(i.aff*3),water:Math.ceil(i.aff*4),blk:Math.ceil(i.aff*.4),eq:Math.ceil(i.aff/500)});
+const SC={Available:'#4E9990','Near Capacity':'#D6A34A',Full:'#d03a35',Emergency:'#d03a35'};
+function vShel(){const cs=D.map(d=>{const dis=d.inc&&d.pr?Math.round(d.inc.i.aff*.4):0,occ=Math.min(d.shel,Math.round(d.shel*d.occ*.5)+dis),av=d.shel-occ,r=occ/d.shel,st=d.risk=='Critical'?'Emergency':r>=1?'Full':r>.8?'Near Capacity':'Available',c=SC[st];
+return `<div class="card rcard" style="--ac:${c}"><div class="mrow" style="margin:0"><b>${d.n}</b><span class="chip" style="background:${c}">${st}</span></div><div class="big">${occ}<span class="sub"> / ${d.shel}</span></div>${bar(occ,d.shel,c)}<div class="mrow"><span>Available ${av}</span><span>Medical · Food · Water</span></div></div>`}).join('');
+return `<h2>Shelters</h2><div class="gauto">${cs}</div>`}
+function vInv(){const d=D.find(x=>x.n==invD),n=d.need||null,done=!!d.alloc;
+const cs=Object.keys(INAMES).map(k=>{const st=d.inv[k],rq=n?n[k]:0,al=done?d.alloc[k]:0,sh=n?Math.max(0,rq-(done?al:st)):0,low=st<d.base[k]*.2,c=sh?'#d03a35':low?'#D6A34A':'#D9824B',lb=sh?'Shortage':low?'Low stock':'OK';
+return `<div class="card rcard" style="--ac:${c}"><div class="mrow" style="margin:0"><b>${INAMES[k]}</b><span class="chip" style="background:${c}">${lb}</span></div><div class="big">${f2(st)}</div>${bar(st,d.base[k],c)}<div class="mrow"><span>Required ${n?f2(rq):'–'}</span><span>Allocated ${f2(al)}</span></div></div>`}).join('');
+const lg=LOG.slice(0,6).map(l=>`<div class="li"><div><b>${l.act} · ${l.item}</b><div class="sub">${l.d} · ${l.q} · ${l.t} · ${l.by}</div></div></div>`).join('')||'<div class="sub">No stock changes yet.</div>';
+return `<h2>Inventory</h2><div class="card tb"><select onchange="invD=this.value;draw()">${D.map(x=>`<option ${x.n==invD?'selected':''}>${x.n}</option>`).join('')}</select><span class="sub">${n?(done?'Stock allocated to the latest incident':'Incident here needs stock'):'No incident in this district'}</span><button onclick="allocInv()" ${n&&!done?'':'disabled style="opacity:.4"'}>Allocate stock to incident</button></div>
+<div class="gauto">${cs}</div><div class="g2c"><div class="card"><h3>Update stock</h3><div class="g3"><label>Item<select id="ik">${Object.entries(INAMES).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select></label><label>Action<select id="ia"><option>Add</option><option>Issue</option></select></label><label>Quantity<input id="iq" type="number" min="1"></label></div><div class="err" id="ierr"></div><button onclick="stockUpd()">Save</button></div><div class="card"><h3>Stock log</h3>${lg}</div></div>`}
+function stockUpd(){const g=id=>document.getElementById(id).value,d=D.find(x=>x.n==invD),k=g('ik'),q=+g('iq'),a=g('ia'),e=document.getElementById('ierr');
+ if(!(q>0))return e.textContent='Enter a quantity above 0.';if(a=='Issue'&&q>d.inv[k])return e.textContent='Cannot issue more than current stock ('+d.inv[k]+').';
+ d.inv[k]+=a=='Add'?q:-q;feed(a+' '+q+' '+INAMES[k]+' ('+d.n+')');LOG.unshift({t:new Date().toLocaleTimeString(),d:d.n,item:INAMES[k],act:a,q,by:role});draw()}
+function allocInv(){const d=D.find(x=>x.n==invD);feed('Allocated stock to incident ('+d.n+')');d.alloc={};Object.keys(INAMES).forEach(k=>{const al=Math.min(d.inv[k],d.need[k]);d.inv[k]-=al;d.alloc[k]=al;if(al)LOG.unshift({t:new Date().toLocaleTimeString(),d:d.n,item:INAMES[k],act:'Allocated to incident',q:al,by:role})});draw()}
+function vMap(){const cnt=k=>D.filter(d=>d.risk==k).length;
+const stats=`<div class="stats"><div class="stat" style="--ac:#d03a35"><span class="sub">Critical / High districts</span><b>${cnt('Critical')} / ${cnt('High')}</b></div><div class="stat" style="--ac:#D95C5C"><span class="sub">Active incidents</span><b>${INC.length}</b></div><div class="stat" style="--ac:#D96B68"><span class="sub">Alerts</span><b>${AL.length}</b></div><div class="stat" style="--ac:#5487B8"><span class="sub">Predicted injured (latest)</span><b>${INC[0]?f2(INC[0].pr.inj):'–'}</b></div></div>`;
+const tiles=D.map(d=>`<g class="tile" data-n="${d.n}" onclick="pick_('${d.n}')"><rect x="${d.x*120+6}" y="${d.y*92+6}" width="108" height="80" rx="6" fill="${RC[d.risk]}" stroke="${sel==d.n?'#242424':'#fff'}" stroke-width="${sel==d.n?4:2}"/><text class="nm" x="${d.x*120+60}" y="${d.y*92+44}">${d.n}</text><text class="rk" x="${d.x*120+60}" y="${d.y*92+64}">${d.risk}</text></g>`).join('');
+const legend=Object.entries(RC).map(([k,c])=>`<span style="margin-right:14px"><span class="b" style="background:${c}">&nbsp;</span> ${k}</span>`).join('')+' · Sample Data';
+const ra=AL.slice(0,4).map(a=>`<div class="li"><span class="dot" style="background:${a.lvl=='CRITICAL'?'#d03a35':a.lvl=='HIGH'?'#e8892b':'#d6a34a'}"></span><div><b>${a.t}</b><div class="sub">${a.d}</div></div></div>`).join('')||'<div class="sub">No alerts yet.</div>';
+const fu=FEED.slice(0,5).map(f=>`<div class="li"><div><b>${f.text}</b><div class="sub">${f.by} · ${f.t}</div></div></div>`).join('')||'<div class="sub">No updates yet.</div>';const ri=INC.slice(0,4).map(i=>`<div class="li"><span class="dot" style="background:${RC[i.pr.risk]}"></span><div><b>${i.type} – ${i.loc}</b><div class="sub">${i.d} · ${i.pr.risk}</div></div></div>`).join('')||'<div class="sub">No incidents yet.</div>';
+return `<h2>Live Map</h2>${stats}<div class="gm"><div class="card"><svg viewBox="0 0 600 466" width="100%">${tiles}</svg><div class="sub" style="margin-top:8px">${legend}</div></div><div class="card" id="side">${side()}</div></div>
+<div class="g2c" style="margin-top:20px"><div class="card"><h3>Simulated Sensor Readings</h3><div id="sens"></div></div><div class="card"><h3>Latest alerts</h3>${ra}</div><div class="card"><h3>Recent incidents</h3>${ri}</div><div class="card"><h3>Field updates</h3>${fu}</div></div>`}
+function pick_(n){sel=n;document.querySelectorAll('.tile').forEach(g=>{const on=g.dataset.n==n,r=g.firstChild;r.setAttribute('stroke',on?'#242424':'#fff');r.setAttribute('stroke-width',on?4:2)});document.getElementById('side').innerHTML=side()}
+function side(){const d=D.find(x=>x.n==sel);if(!d)return '<div class="sub">Select a district on the map.</div>';const p=d.pr,i=d.inc;
+ const sh=p?Object.entries(p.dm).filter(([k,v])=>v[0]>v[1]).map(([k])=>k).join(', '):'';
+ const act=!p?'Routine monitoring.':p.risk=='Critical'||p.risk=='High'?'Dispatch responders and open shelters.':'Monitor and keep teams on standby.';
+ return `<h3 style="font-size:18px">${d.n} <span class="b" style="background:${RC[d.risk]}">${d.risk}</span></h3>`+kv('Population',d.pop+' lakh')+kv('Incident',i?i.type+' – '+i.loc:'None')+kv('Risk probability',p?(Math.max(...p.p)*100).toFixed(2)+'%':'–')+kv('People affected',i?i.i.aff:0)+kv('Injured (reported / predicted)',(i?i.rep:0)+' / '+(p?f2(p.inj):'–'))+kv('Beds / Ambulances',d.beds+' / '+d.amb)+kv('Shortages',sh||'None')+`<p class="sub" style="margin:12px 0"><b>Action:</b> ${act}</p><button onclick="vd('${d.n}')">View District Details</button>`}
+function vd(n){sel=n;go('det')}
+function vDet(){const d=D.find(x=>x.n==sel);if(!d)return'';const p=d.pr,i=d.inc;
+ const sh=p?Object.entries(p.dm).filter(([k,v])=>v[0]>v[1]).map(([k,v])=>`${k} (−${f2(v[0]-v[1])})`).join(', '):'None';
+ return `<h2>${d.n} <span class="b" style="background:${RC[d.risk]}">${d.risk}</span></h2><div class="row"><div class="card"><h3>District</h3>${kv('Population',d.pop+' lakh')}${kv('Density',d.den+' /km²')}${kv('Hospital beds',d.beds)}${kv('Ambulances',d.amb)}${kv('Police',d.pol)}${kv('Fire',d.fire)}${kv('Rescue teams',d.resc)}${kv('Shelter capacity',d.shel)}${kv('Areas',d.areas.join(', ')||'–')}</div>
+ <div class="card"><h3>Current incident</h3>${i?kv('Type',i.type)+kv('Area',i.loc)+kv('Severity',i.i.sev+'/4')+kv('Risk probability',(Math.max(...p.p)*100).toFixed(2)+'%')+kv('People affected',i.i.aff)+kv('Injured (reported / predicted)',i.rep+' / '+f2(p.inj))+kv('Shortages',sh):'<div class="sub">No active incident.</div>'}</div></div><div style="margin-top:14px"><button class="alt" onclick="go('map')">Back to map</button></div>`}
+function tick(){const e=document.getElementById('sens');if(e)e.innerHTML='<div class="g2c" style="gap:12px">'+[['Water level',SENS.wl.toFixed(2)+' m'],['Rainfall',SENS.rain.toFixed(2)+' mm/h'],['Temperature',SENS.temp.toFixed(2)+' °C'],['Crowd index',Math.round(SENS.crowd)]].map(([a,b])=>`<div class="mini"><span class="sub">${a}</span><b>${b}</b></div>`).join('')+'</div>'}
+setInterval(()=>{SENS.wl=Math.max(0,SENS.wl+(Math.random()-.45)*.2);SENS.rain=Math.max(0,SENS.rain+(Math.random()-.5)*4);SENS.temp+=(Math.random()-.5)*.6;SENS.crowd+=(Math.random()-.5)*5;tick()},3000);
+function vRep(){if(!['Admin','Citizen'].includes(role))return'<p>Not permitted.</p>';const t=new Date(),sn=SENS,o=(a)=>a.map(x=>`<option value="${x[0]}">${x[1]}</option>`).join('');
+return `<h2>Report Incident</h2><div class="card" style="max-width:1000px;padding:26px"><div class="g3">
+<label>District<select id="dd" onchange="repDist()">${D.map(d=>`<option ${d.n==sel?'selected':''}>${d.n}</option>`).join('')}</select></label>
+<label>Area<select id="ar" onchange="repDist(1)"></select></label><label id="lcw">New area name<input id="lc" placeholder="Type the area"></label>
+<label>Disaster type<select id="ty" onchange="repType()">${['Flood','Fire','Earthquake','Heatwave','Storm','Landslide','Industrial Accident','Other'].map(x=>`<option>${x}</option>`).join('')}</select></label>
+<label>Severity<select id="sv"><option value="1">1 – Minor</option><option value="2">2 – Moderate</option><option value="3" selected>3 – Major</option><option value="4">4 – Extreme</option></select></label>
+<label>People affected<input id="af" type="number" min="0"></label><label>Reported injured<input id="ij" type="number" min="0" value="0"></label>
+<label>Date<input id="dt" type="date" value="${t.toISOString().slice(0,10)}"></label><label>Time<input id="tm" type="time" value="${t.toTimeString().slice(0,5)}"></label>
+<label id="w1">Water level<select id="wl"><option value="auto">Auto – sensor (${sn.wl.toFixed(2)} m)</option>${o([[.5,'Normal'],[2,'Rising'],[4,'Above danger level'],[6,'Severe flooding']])}</select></label>
+<label id="w2">Rainfall<select id="rn"><option value="auto">Auto – sensor (${sn.rain.toFixed(2)} mm/h)</option>${o([[5,'Light'],[15,'Moderate'],[35,'Heavy'],[70,'Extreme']])}</select></label>
+<label id="w3">Temperature<select id="tp"><option value="auto">Auto – sensor (${sn.temp.toFixed(2)} °C)</option>${o([[32,'Normal'],[40,'Hot'],[46,'Extreme heat']])}</select></label></div>
+<label>Description<textarea id="ds" rows="2"></textarea></label>
+<div class="err" id="msg"></div><button onclick="runPrediction()">Submit &amp; run prediction</button></div>`}
+function repDist(fa){const g=id=>document.getElementById(id),d=D.find(x=>x.n==g('dd').value),ar=g('ar');
+ if(!fa)ar.innerHTML=d.areas.map(a=>`<option>${a}</option>`).join('')+'<option value="__o">Other – type a new area…</option>';
+ g('lcw').style.display=ar.value=='__o'?'':'none'}
+function repType(){const rel=REL[document.getElementById('ty').value]||[];['wl','rain','temp'].forEach((k,i)=>document.getElementById('w'+(i+1)).style.display=rel.includes(k)&&role!='Citizen'?'':'none')}
+let predI=0;
+function vPred(){if(!INC.length)return `<h2>Risk Forecast</h2><div class="card sub">No forecasts yet. Report an incident to see one.</div>`;
+ const n=Math.min(predI,INC.length-1),i=INC[n],p=i.pr,conf=Math.max(...p.p);
+ const top=`<div class="card tb"><select onchange="predI=+this.value;draw()">${INC.map((x,k)=>`<option value="${k}" ${k==n?'selected':''}>#${x.id} ${x.type} – ${x.loc} (${x.d})</option>`).join('')}</select><span class="sub">Reported ${i.date} ${i.time}</span></div>`;
+ const stats=`<div class="stats" style="grid-template-columns:repeat(3,1fr)"><div class="stat" style="--ac:${RC[p.risk]}"><span class="sub">Risk level</span><b>${p.risk}</b></div><div class="stat" style="--ac:#8767B7"><span class="sub">Confidence</span><b>${(conf*100).toFixed(2)}%</b></div><div class="stat" style="--ac:#D95C5C"><span class="sub">Expected injured</span><b>${f2(p.inj)}</b></div></div>`;
+ const risk=p.cl.map((c,k)=>k).reverse().map(k=>{const c=p.cl[k],v=p.p[k];return `<div class="li" style="gap:14px"><span style="width:70px"><b>${c}</b></span><div style="flex:1">${bar(v,1,RC[c])}</div><b style="width:78px;text-align:right">${(v*100).toFixed(2)}%</b></div>`}).join('');
+ const dem=Object.entries(p.dm).map(([k,[r,a]])=>`<div style="margin-bottom:14px"><div class="mrow" style="margin:0 0 5px"><span>${k}</span><span style="color:${r>a?'#d03a35':'inherit'}">${f2(r)} needed · ${f2(a)} available</span></div>${bar(Math.min(a,r),r||1,r>a?'#d03a35':'#5487B8')}</div>`).join('');
+ return `<h2>Risk Forecast</h2>${top}${stats}<div class="g2c"><div class="card"><h3>Chance of each risk level</h3>${risk}</div><div class="card"><h3>Needed vs available</h3>${dem}</div></div>`}
+function vRes(){if(role!='Admin')return'<p>Not permitted for this role.</p>';const d=D.find(x=>x.n==(INC[0]?.d));if(!d)return `<h2>Resources</h2><div class="card sub">No incident yet. Report one to see predicted demand.</div>`;
+const cs=Object.entries(d.pr.dm).map(([k,[r,a]])=>{const sh=Math.max(0,r-a),al=Math.min(r,a),c=sh?'#d03a35':'#5487B8';return `<div class="card rcard" style="--ac:${c}"><div class="mrow" style="margin:0"><b>${k}</b><span class="chip" style="background:${c}">${sh?'Short '+f2(sh):'Covered'}</span></div><div class="big">${f2(r)}<span class="sub"> required</span></div>${bar(al,r||1,c)}<div class="mrow"><span>Available ${f2(a)}</span><span>Allocated ${f2(al)} · Left ${f2(a-al)}</span></div></div>`}).join('');
+return `<h2>Resources – ${d.n}</h2><div class="gauto">${cs}</div>`}
+const TOT={'Ambulance Teams':x=>x.amb,'Doctors':x=>Math.round(x.beds/12),'Nurses':x=>Math.round(x.beds/6),'Rescue Teams':x=>x.resc,'Police':x=>x.pol,'Firefighters':x=>x.fire};
+function sendTo(type,v){const to=INC[0].d,t=D.findIndex(x=>x.n==to);v=Math.max(0,Math.round(+v)||0);
+ const rows=ASSIGN.filter(a=>a.type==type&&a.st!='Completed'),cur=rows.reduce((q,a)=>q+a.units,0);
+ if(v<cur){let cut=cur-v;rows.sort((a,b)=>b.km-a.km).forEach(a=>{const c=Math.min(cut,a.units);a.units-=c;D[a.si].out[type]-=c;cut-=c});ASSIGN=ASSIGN.filter(a=>a.units>0||a.st=='Completed')}
+ else if(v>cur){let add=v-cur;D.map((x,k)=>({k,km:dijkstra(t,k).km})).sort((a,b)=>a.km-b.km).forEach(o=>{if(add<=0)return;const st=D[o.k],av=Math.floor(TOT[type](st)*.7)-(st.out[type]||0),take=Math.min(add,av);if(take<=0)return;
+  const ex=ASSIGN.find(a=>a.type==type&&a.si==o.k&&a.st!='Completed');st.out[type]=(st.out[type]||0)+take;add-=take;
+  if(ex)ex.units+=take;else{const r=dijkstra(o.k,t);ASSIGN.push({type,from:st.n,si:o.k,to,units:take,path:r.km?r.path.join(' → '):'Within district',km:r.km,min:r.km?r2(r.km/55*60):10,st:'Dispatched'})}})}
+ feed('Now sending '+v+' '+type+' (needed '+f2(DEM.find(r=>r[0]==type)[1])+')');draw()}
+function vResp(){if(!DEM.length)return `<h2>Responders</h2><div class="card sub">No active assignments yet. Units appear here as soon as an incident is reported.</div>`;
+ const plan=DEM.map(r=>{const type=r[0],need=r[1],sent=ASSIGN.filter(a=>a.type==type&&a.st!='Completed').reduce((q,a)=>q+a.units,0),mx=D.reduce((q,x)=>q+Math.max(0,Math.floor(TOT[type](x)*.7)-(x.out[type]||0)),0)+sent,gap=need-sent,c=gap>0?'#d03a35':'#4E9990';
+  return `<div class="card rcard" style="--ac:${c}"><div class="mrow" style="margin:0"><b>${type}</b><span class="chip" style="background:${c}">${gap>0?'Short '+f2(gap):'Covered'}</span></div><div class="mrow"><span>Needed</span><b>${f2(need)}</b></div><div class="mrow" style="align-items:center"><span>Sending</span><input type="number" min="0" max="${mx}" value="${sent}" style="width:90px;margin:0;text-align:right" onchange="sendTo('${type}',this.value)"></div><div style="margin-top:10px">${bar(Math.min(sent,need),need||1,c)}</div><div class="sub" style="margin-top:8px">Up to ${mx} available</div></div>`}).join('');
+ const st=k=>`<select style="margin:0;width:auto" onchange="setSt(${k},this.value)">${['Dispatched','En route','On scene','Completed'].map(x=>`<option ${x==ASSIGN[k].st?'selected':''}>${x}</option>`).join('')}</select>`;
+ const cs=ASSIGN.map((a,k)=>`<div class="card"><div class="mrow" style="margin:0"><b>${a.type} ×${a.units}</b>${st(k)}</div><div style="margin:14px 0 6px;font-size:16px">${a.from} → ${a.to}</div><div class="sub">${a.path}</div><div class="sub" style="margin-top:10px">${a.by?'Updated by '+a.by+' · '+a.at:'Dispatched by system'}</div><div class="mrow"><span>${(+a.km).toFixed(1)} km</span><span>${f2(a.min)} min</span></div></div>`).join('');
+ return `<h2>Responders – ${INC[0].d}</h2><h3 style="margin:0 0 12px">Dispatch plan · set how many you are sending</h3><div class="gauto">${plan}</div><h3 style="margin:8px 0 12px">Routes and status</h3><div class="gauto">${cs}</div>`}
+function vAl(){return `<h2>Alerts</h2>`+(AL.length?'<div class="g2c">'+AL.map(a=>{const c=a.lvl=='CRITICAL'?'#d03a35':a.lvl=='HIGH'?'#e8892b':'#d6a34a';return `<div class="card rcard" style="--ac:${c}"><div class="mrow" style="margin:0"><span class="chip" style="background:${c}">${a.lvl}</span><span class="sub">${a.d} · ${a.time}</span></div><h3 style="margin:14px 0 6px">${a.t}</h3><div>${a.m}</div></div>`}).join('')+'</div>':'<div class="card sub">No alerts yet.</div>')}
+function addArea(i){const e=document.getElementById('a_'+i),v=e.value.trim();if(v&&!D[i].areas.includes(v)){D[i].areas.push(v);draw()}}
+function vData(){const rows=D.map((d,i)=>`<tr><td>${d.n}</td>${['pop','den','beds','amb','pol','fire','resc','shel'].map(k=>`<td>${role=='Admin'?`<input style="width:70px;margin:0;padding:3px" value="${d[k]}" onchange="D[${i}].${k}=+this.value">`:d[k]}</td>`).join('')}<td style="min-width:220px">${d.areas.join(', ')||'–'}${role=='Admin'?`<div style="display:flex;gap:4px;margin-top:4px"><input id="a_${i}" placeholder="New area" style="margin:0;padding:3px"><button class="alt" onclick="addArea(${i})">Add</button></div>`:''}</td></tr>`).join('');
+ return `<h2>Sample Data</h2><table><tr><th>District</th><th>Pop (lakh)</th><th>Density</th><th>Beds</th><th>Ambulances</th><th>Police</th><th>Fire</th><th>Rescue</th><th>Shelter cap.</th><th>Areas</th></tr>${rows}</table>`}
+</script></body></html>

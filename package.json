@@ -1,0 +1,17 @@
+{
+  "name": "novair",
+  "version": "1.0.0",
+  "description": "NOVAIR - Emergency Intelligence & Response Platform (student project)",
+  "main": "backend/server.js",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "data": "node scripts/makeSampleData.js",
+    "train": "node models/train.js",
+    "seed": "node database/seed.js",
+    "setup": "node scripts/makeSampleData.js && node models/train.js && node database/seed.js",
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "mysql2": "^3.11.0"
+  }
+}

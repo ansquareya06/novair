@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>NOVAIR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/static/css/style.css"></head><body>
+<div id="login"><div class="card"><div class="logo" style="font-size:46px;line-height:1.1">NOVAIR</div><div class="sub">Emergency Intelligence &amp; Response Platform</div><div class="sub" style="margin-bottom:16px">Predict. Prepare. Respond.</div>
+<label>Email / Username<input id="em" autocomplete="off" placeholder="admin@novair.com"></label><label>Password<input id="pw" type="password" oninput="chk()"></label>
+<ul class="req" id="rq"><li>At least 8 characters</li><li>One uppercase letter</li><li>One number</li><li>One special character</li></ul>
+<label><input type="checkbox" style="width:auto;margin:0 4px 0 0" onchange="pw.type=this.checked?'text':'password'">Show password</label>
+<label style="display:block;margin:6px 0"><input type="checkbox" style="width:auto;margin:0 4px 0 0">Remember me</label>
+<div class="err" id="er"></div><button onclick="login()" style="width:100%">Login</button>
+<div style="text-align:center;margin-top:8px"><a href="#" class="sub" onclick="er.textContent='Password reset is not available in the prototype.';return false">Forgot password?</a></div>
+<div style="margin-top:14px;display:flex;gap:6px"><button class="alt" onclick="fill('admin')">Admin</button><button class="alt" onclick="fill('staff')">Field Staff</button><button class="alt" onclick="fill('citizen')">Citizen</button></div><small class="demo">Demo password: NOVAIR@2026</small></div></div>
+<div id="app"><nav><div class="logo">NOVAIR</div><div id="nv"></div></nav><main id="mn"></main></div>
+<footer>Ananya Sahu 2427030501</footer>
+<script src="/static/js/app.js"></script>
+</body></html>

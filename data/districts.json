@@ -1,0 +1,23 @@
+{
+  "note": "SAMPLE DATA: illustrative numbers for demonstration, not official statistics.",
+  "districts": [
+    {"name":"Jaipur","pop":66,"den":598,"beds":9000,"amb":120,"pol":400,"fire":40,"resc":12,"shel":20000,"x":3,"y":1,"areas":["Malviya Nagar","Mansarovar","Vaishali Nagar","C-Scheme","Sanganer","Jhotwara"]},
+    {"name":"Jodhpur","pop":37,"den":161,"beds":4500,"amb":70,"pol":260,"fire":24,"resc":8,"shel":12000,"x":1,"y":1,"areas":["Sardarpura","Ratanada","Paota","Mandore"]},
+    {"name":"Udaipur","pop":31,"den":262,"beds":3200,"amb":55,"pol":200,"fire":18,"resc":7,"shel":15000,"x":2,"y":3,"areas":["Fateh Sagar","Hiran Magri","Sukhadia Circle"]},
+    {"name":"Kota","pop":20,"den":230,"beds":3800,"amb":60,"pol":190,"fire":20,"resc":6,"shel":9000,"x":3,"y":3,"areas":["Talwandi","Vigyan Nagar","Mahaveer Nagar"]},
+    {"name":"Bikaner","pop":24,"den":78,"beds":2600,"amb":45,"pol":170,"fire":15,"resc":5,"shel":8000,"x":1,"y":0,"areas":["Lalgarh","Gangashahar"]},
+    {"name":"Ajmer","pop":26,"den":305,"beds":3000,"amb":50,"pol":180,"fire":16,"resc":6,"shel":10000,"x":2,"y":2,"areas":["Pushkar Road","Adarsh Nagar"]},
+    {"name":"Jaisalmer","pop":7,"den":17,"beds":700,"amb":18,"pol":90,"fire":6,"resc":3,"shel":3000,"x":0,"y":1,"areas":["Gadisar","Sam Road"]},
+    {"name":"Barmer","pop":26,"den":92,"beds":1500,"amb":30,"pol":120,"fire":8,"resc":4,"shel":6000,"x":0,"y":2,"areas":["Station Road","Balotra"]},
+    {"name":"Alwar","pop":37,"den":438,"beds":2700,"amb":48,"pol":210,"fire":14,"resc":5,"shel":9000,"x":4,"y":1,"areas":["Scheme 10","Shanti Kunj"]},
+    {"name":"Bharatpur","pop":26,"den":503,"beds":2200,"amb":40,"pol":150,"fire":12,"resc":5,"shel":8000,"x":4,"y":2,"areas":["Kila Area","Keoladeo Road"]},
+    {"name":"Sikar","pop":27,"den":282,"beds":1800,"amb":35,"pol":140,"fire":10,"resc":4,"shel":7000,"x":3,"y":0,"areas":["Fatehpur Road","Salasar"]},
+    {"name":"Chittorgarh","pop":15,"den":198,"beds":1300,"amb":28,"pol":110,"fire":8,"resc":4,"shel":5000,"x":2,"y":4,"areas":["Fort Road","Bassi"]}
+  ],
+  "routes": [
+    ["Jaipur","Ajmer",135],["Jaipur","Sikar",115],["Jaipur","Alwar",150],["Jaipur","Bharatpur",185],["Jaipur","Kota",245],
+    ["Ajmer","Jodhpur",200],["Ajmer","Udaipur",270],["Ajmer","Kota",205],["Jodhpur","Bikaner",250],["Jodhpur","Barmer",215],
+    ["Jodhpur","Jaisalmer",285],["Barmer","Jaisalmer",155],["Udaipur","Chittorgarh",115],["Kota","Chittorgarh",170],
+    ["Sikar","Bikaner",215],["Alwar","Bharatpur",95],["Ajmer","Chittorgarh",190]
+  ]
+}
